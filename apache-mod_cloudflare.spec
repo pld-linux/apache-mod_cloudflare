@@ -2,13 +2,14 @@
 %define 	apxs		%{_sbindir}/apxs
 Summary:	Apache module to show true visitor IPs in logs for domains using CloudFlare
 Name:		apache-mod_%{mod_name}
-Version:	1.2.1
+Version:	2016.10.0
 Release:	1
 License:	Apache v2.0
 Group:		Networking/Daemons/HTTP
-Source0:	https://github.com/cloudflare/mod_cloudflare/archive/master/mod_%{mod_name}-%{version}.tar.gz
-# Source0-md5:	b451823076713c1faa64c09e111a98b8
+Source0:	https://github.com/cloudflare/mod_cloudflare/archive/98ab38a/mod_%{mod_name}-%{version}.tar.gz
+# Source0-md5:	d618e95ba37e48139858ebadc908b142
 Source1:	apache.conf
+URL:		https://github.com/cloudflare/mod_cloudflare
 BuildRequires:	apache-devel >= 2.2
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	apache(modules-api) = %apache_modules_api
@@ -34,6 +35,10 @@ from CloudFlare IPs.
 mv mod_cloudflare-*/* .
 
 %build
+. ./VERSION
+version=$MAJOR.$MINOR.$BUILD
+test "$version" = %{version}
+
 %{apxs} -c mod_%{mod_name}.c
 
 %install
