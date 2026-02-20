@@ -3,7 +3,7 @@
 Summary:	Apache module to show true visitor IPs in logs for domains using CloudFlare
 Name:		apache-mod_%{mod_name}
 Version:	2016.10.0
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Networking/Daemons/HTTP
 Source0:	https://github.com/cloudflare/mod_cloudflare/archive/98ab38a/mod_%{mod_name}-%{version}.tar.gz
