@@ -1,0 +1,11 @@
+--- a/mod_cloudflare.c.orig	2016-10-04 21:28:27.000000000 +0000
++++ a/mod_cloudflare.c	2026-04-05 00:00:00.000000000 +0000
+@@ -185,7 +185,7 @@
+      apr_status_t rv;
+      cloudflare_proxymatch_t *match;
+      int i;
+-     char **proxies = CF_DEFAULT_TRUSTED_PROXY;
++     const char **proxies = CF_DEFAULT_TRUSTED_PROXY;
+
+      for (i=0; i<CF_DEFAULT_TRUSTED_PROXY_COUNT; i++) {
+          char *ip = apr_pstrdup(p, proxies[i]);
